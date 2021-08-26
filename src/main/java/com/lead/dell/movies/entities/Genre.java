@@ -2,6 +2,7 @@ package com.lead.dell.movies.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,10 +19,13 @@ public class Genre implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@JoinColumn(name = "genre_id")
+	
+	@Column(name = "genre_id")
 	private long genreId;
 	private String name;
-	//private String tag;
+	
+	@ManyToOne
+	@JoinColumn(name = "language_id")
 	private Language language;
 	
 	
