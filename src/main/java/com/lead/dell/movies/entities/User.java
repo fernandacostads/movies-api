@@ -18,11 +18,10 @@ import javax.persistence.Table;
 import com.lead.dell.movies.profileenum.ProfileEnum;
 
 
-
-
 @Entity
 @Table(name="tb_user")
 public class User implements Serializable {
+	
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -48,7 +47,7 @@ public class User implements Serializable {
 	
 	//@ManyToOne
 	//@Enumerated(EnumType.STRING)
-	private ProfileEnum profile;
+	//private ProfileEnum profile;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
@@ -116,14 +115,15 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 
-	public ProfileEnum getProfile() {
-		return profile;
-	}
-
-	public void setProfile(ProfileEnum profile) {
-		this.profile = profile;
-	}
+//	public ProfileEnum getProfile() {
+//		return profile;
+//	}
+//
+//	public void setProfile(ProfileEnum profile) {
+//		this.profile = profile;
+//	}
 	
 	
 	
 }
+

@@ -5,6 +5,7 @@ import com.lead.dell.movies.repository.UserRepository;
 import com.lead.dell.movies.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -37,20 +39,21 @@ public class UserController {
 		return userService.findAll();
 	}
 	
-	@GetMapping("/user/{id}")
-	public ResponseEntity<User> getUserById(@PathVariable(value="id") long userId){
-		return UserRepository.findById(userId);
+	@GetMapping("/user/{userId}")
+	public Optional<User> getUserById(@PathVariable long userId){
+		return userService.findById(userId);
 	}
 	
-	@PutMapping("/user")
-	public User updateUser(@RequestBody User user) {
-		return userService.save(user);
-	}
-
-	@DeleteMapping("/produtos")
-	public void deletaProduto(@RequestBody User user) {
-		userService.delete(user);
-	}
-	
+//	@PutMapping("/user")
+//	public User updateUser(@RequestBody User user) {
+//		return userService.save(user);
+//	}
+//
+//	@DeleteMapping("/produtos")
+//	public void deletaProduto(@RequestBody User user) {
+//		userService.delete(user);
+//	}
+//	
 	
 }
+
