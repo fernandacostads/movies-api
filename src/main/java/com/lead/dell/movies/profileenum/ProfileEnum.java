@@ -2,21 +2,21 @@ package com.lead.dell.movies.profileenum;
 
 public enum ProfileEnum {
 
-	ADM(1), VISITOR(0);
+	ADM, VISITOR;
 	
-	private int valor;
+	//private int valor;
 	
-	private ProfileEnum (int valor) {
-		this.setValor(valor);
-	}
+	// private ProfileEnum (int valor) {
+	// 	this.setValor(valor);
+	// }
 
-	public int getValor() {
-		return valor;
-	}
+	// public int getValor() {
+	// 	return valor;
+	// }
 
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
+	// public void setValor(int valor) {
+	// 	this.valor = valor;
+	// }
 }
 
 
