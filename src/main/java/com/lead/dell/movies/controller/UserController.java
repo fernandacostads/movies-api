@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableAutoConfiguration
-//@RequestMapping(value="/api")
+//@RequestMapping(value="/")
 public class UserController {
 
 	@Autowired
@@ -34,26 +34,30 @@ public class UserController {
 		return userService.save(user);
 	}
 	
+	
 	@GetMapping("/user")
 	public List<User> getAllUsers(){
 		return userService.findAll();
 	}
 	
+		
 	@GetMapping("/user/{userId}")
 	public Optional<User> getUserById(@PathVariable long userId){
 		return userService.findById(userId);
 	}
+	
 	
 	@PutMapping("/user/{userId}")
 	public User updateUser(@RequestBody User user, @PathVariable long userId) {
 		return userService.updateUser(userId, user);
 	}
 
-//	@DeleteMapping("/produtos")
-//	public void deletaProduto(@RequestBody User user) {
-//		userService.delete(user);
-//	}
-//	
+	
+	@DeleteMapping("/user/{userId}")
+	public User deleteUser( User user, @PathVariable long userId) {
+		return userService.delete(user);
+	}
+	
 	
 }
 

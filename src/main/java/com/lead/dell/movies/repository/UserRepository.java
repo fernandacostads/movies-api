@@ -12,6 +12,5 @@ import com.lead.dell.movies.entities.*;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<User> findById(long userId);
-
 	
 }

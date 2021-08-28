@@ -44,14 +44,15 @@ public class User implements Serializable {
 	@Column(nullable=false)
 	private String password;
 	
-	
-	
-	//@Enumerated(EnumType.STRING)
-	//private ProfileEnum profile;
+	@Enumerated(EnumType.STRING)
+	private ProfileEnum profile;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
+
+	private boolean active = true;
+
 
 	public long getUserId() {
 		return userId;
@@ -115,13 +116,22 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 
-//	public ProfileEnum getProfile() {
-//		return profile;
-//	}
-//
-//	public void setProfile(ProfileEnum profile) {
-//		this.profile = profile;
-//	}
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	
+	public ProfileEnum getProfile() {
+		return profile;
+	}
+
+	public void setProfile(ProfileEnum profile) {
+		this.profile = profile;
+	}
 	
 	
 	
