@@ -28,7 +28,14 @@ public class Genre implements Serializable {
 	@JoinColumn(name = "language_id")
 	private Language language;
 	
+	private boolean active = true;
 	
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 	public long getGenreId() {
 		return genreId;
 	}
