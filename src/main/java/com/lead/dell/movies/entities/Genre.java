@@ -1,7 +1,6 @@
 package com.lead.dell.movies.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +21,7 @@ public class Genre implements Serializable {
 	
 	@Column(name = "genre_id")
 	private long genreId;
+	
 	private String name;
 	
 	@ManyToOne
@@ -29,31 +29,40 @@ public class Genre implements Serializable {
 	private Language language;
 	
 	private boolean active = true;
+
 	
 	public boolean isActive() {
 		return active;
 	}
+	
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	
 	public long getGenreId() {
 		return genreId;
 	}
+	
 	public void setGenreId(long genreId) {
 		this.genreId = genreId;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public Language getLanguage() {
 		return language;
 	}
+	
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
