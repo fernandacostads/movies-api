@@ -8,7 +8,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,32 +24,32 @@ public class GenreController {
 	GenreService genreService;
 	
 	
-	@PostMapping("/genre")
+	@PostMapping("/add-genre")
 	public Genre createGenre(@RequestBody Genre genre) {
 		return genreService.save(genre);
 	}
 	
 	
-	@GetMapping("/genre")
+	@GetMapping("/listall-genre")
 	public List<Genre> getAllGenres(){
 		return genreService.findAll();
 	}
 	
 		
-	@GetMapping("/genre/{genreId}")
+	@GetMapping("/list-genre/{genreId}")
 	public Optional<Genre> getGenreById(@PathVariable long genreId){
 		return genreService.findById(genreId);
 	}
 	
 	
-	@PutMapping("/genre/{genreId}")
+	@PutMapping("/edit-genre/{genreId}")
 	public Genre updateGenre(@RequestBody Genre genre, @PathVariable long genreId) {
 		return genreService.updateGenre(genreId, genre);
 	}
 
 	
-	@DeleteMapping("/genre/{genreId}")
-	public Genre deleteGenre( Genre genre, @PathVariable long genreId) {
+	@PutMapping("/delete-genre/{genreId}")
+	public Genre deleteGenre(@RequestBody Genre genre, @PathVariable long genreId) {
 		return genreService.delete(genre);
 	}
 	

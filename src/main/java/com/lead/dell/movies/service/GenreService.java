@@ -2,11 +2,8 @@ package com.lead.dell.movies.service;
 
 import com.lead.dell.movies.repository.GenreRepository;
 import com.lead.dell.movies.entities.Genre;
-
-
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +21,7 @@ public class GenreService {
 	
 	
 	public List<Genre> findAll() {
-		return genreRepository.findAll();
+		return genreRepository.findByActive(true);
 	}
 	
 
