@@ -2,7 +2,6 @@ package com.lead.dell.movies.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +22,9 @@ public class Movie implements Serializable {
 	
 	@Column(name = "movie_id")
 	private long movieId;
+	
 	private String title;
+	
 	private String synopsis;
 	
 	@ManyToOne
@@ -33,12 +32,25 @@ public class Movie implements Serializable {
 	
 	@Column(columnDefinition = "TEXT")
 	private String image;
+	
 	private Date releaseDate;
+	
 	private String time;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
+
+	private boolean active = true;
+	
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 	public long getMovieId() {
 		return movieId;
@@ -107,9 +119,5 @@ public class Movie implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
-	
-	
+		
 }

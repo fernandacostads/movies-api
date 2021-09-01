@@ -1,8 +1,6 @@
 package com.lead.dell.movies.entities;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,27 +18,35 @@ public class Language implements Serializable {
 
 	//@Column(name = "language_id")
 	private long languageId;
+	
 	private String tag;
+	
 	private String name;
 	
 	public long getLanguageId() {
 		return languageId;
 	}
+	
 	public void setLanguageId(long languageId) {
 		this.languageId = languageId;
 	}
+	
 	public String getTag() {
 		return tag;
 	}
+	
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
