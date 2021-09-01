@@ -24,20 +24,22 @@ public class UserService {
 	
 	
 	public List<User> findAll() {
-		return userRepository.findAll();
+		return userRepository.findByActive(true);
 	}
 	
-	
+
 	public Optional<User> findOne(Long userId) {
 		
 		return userRepository.findById(userId);
 	}
 	
 	
-	public void delete(User user) {
-		userRepository.delete(user);
+	public User delete(User user) {		
+		user.setActive(false);
+		return userRepository.save(user);
 	}
 
+	
 	public User updateUser(long userId, User user) {
 		return userRepository.save(user);
 	}
@@ -46,7 +48,6 @@ public class UserService {
 	public Optional<User> findById(Long userId) {
 		return userRepository.findById(userId);
 	}
-
 
 
 }

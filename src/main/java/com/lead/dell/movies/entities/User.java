@@ -11,10 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import com.lead.dell.movies.profileenum.ProfileEnum;
 
 
@@ -33,6 +30,7 @@ public class User implements Serializable {
 	
 	@Column(nullable=false,unique=true)
 	private String cpf;
+	
 	private String name;
 	
 	@Column(name = "phone_number")
@@ -44,14 +42,15 @@ public class User implements Serializable {
 	@Column(nullable=false)
 	private String password;
 	
-	
-	
-	//@Enumerated(EnumType.STRING)
-	//private ProfileEnum profile;
+	@Enumerated(EnumType.STRING)
+	private ProfileEnum profile;
 	
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
+
+	private boolean active = true;
+
 
 	public long getUserId() {
 		return userId;
@@ -115,13 +114,22 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 
-//	public ProfileEnum getProfile() {
-//		return profile;
-//	}
-//
-//	public void setProfile(ProfileEnum profile) {
-//		this.profile = profile;
-//	}
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	
+	public ProfileEnum getProfile() {
+		return profile;
+	}
+
+	public void setProfile(ProfileEnum profile) {
+		this.profile = profile;
+	}
 	
 	
 	
