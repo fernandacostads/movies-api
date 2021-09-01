@@ -45,7 +45,7 @@ public class User implements Serializable {
 	private String password;
 	
 	
-	//@ManyToOne
+	
 	//@Enumerated(EnumType.STRING)
 	//private ProfileEnum profile;
 	

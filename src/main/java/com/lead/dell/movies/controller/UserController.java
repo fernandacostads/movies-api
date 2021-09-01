@@ -44,11 +44,11 @@ public class UserController {
 		return userService.findById(userId);
 	}
 	
-//	@PutMapping("/user")
-//	public User updateUser(@RequestBody User user) {
-//		return userService.save(user);
-//	}
-//
+	@PutMapping("/user/{userId}")
+	public User updateUser(@RequestBody User user, @PathVariable long userId) {
+		return userService.updateUser(userId, user);
+	}
+
 //	@DeleteMapping("/produtos")
 //	public void deletaProduto(@RequestBody User user) {
 //		userService.delete(user);
