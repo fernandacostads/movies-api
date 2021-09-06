@@ -44,6 +44,8 @@ public class User implements Serializable, UserDetails {
 	@Column(unique=true)
 	private String email;
 	
+	private String username;
+	
 	@Column(nullable=false)
 	private String password;
 	
@@ -98,7 +100,8 @@ public class User implements Serializable, UserDetails {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
+		//return password;
 	}
 
 	
@@ -144,32 +147,31 @@ public class User implements Serializable, UserDetails {
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.username;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	
