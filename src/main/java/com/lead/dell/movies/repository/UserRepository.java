@@ -1,6 +1,7 @@
 package com.lead.dell.movies.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,6 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<User> findById(long userId);
 	List<User> findByActive(boolean active);
-	User findByUsername(String username);
-	
+	Optional<User> findByUserName(String userName);
 }

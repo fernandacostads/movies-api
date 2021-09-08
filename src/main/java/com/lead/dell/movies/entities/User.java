@@ -1,7 +1,6 @@
 package com.lead.dell.movies.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,16 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import com.lead.dell.movies.profileenum.ProfileEnum;
 
 
 @Entity
 @Table(name="tb_user")
-public class User implements Serializable, UserDetails {
+public class User implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -44,8 +39,6 @@ public class User implements Serializable, UserDetails {
 	@Column(unique=true)
 	private String email;
 	
-	private String username;
-	
 	@Column(nullable=false)
 	private String password;
 	
@@ -58,7 +51,10 @@ public class User implements Serializable, UserDetails {
 
 	private boolean active = true;
 
+	private String roles;
 
+	private String userName;
+	
 	public long getUserId() {
 		return userId;
 	}
@@ -100,11 +96,9 @@ public class User implements Serializable, UserDetails {
 	}
 
 	public String getPassword() {
-		return this.password;
-		//return password;
+		return password;
 	}
 
-	
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -138,43 +132,23 @@ public class User implements Serializable, UserDetails {
 	public void setProfile(ProfileEnum profile) {
 		this.profile = profile;
 	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		return this.username;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
 	
+	
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	
 	
 }
-
