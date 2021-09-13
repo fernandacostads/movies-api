@@ -19,37 +19,36 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
-	
+
 
 	@PostMapping("/add-user")
 	public User createUser(@RequestBody User user) {
 		return userService.save(user);
 	}
-	
-	
+
+
 	@GetMapping("/listall-user")
 	public List<User> getAllUsers(){
 		return userService.findAll();
 	}
-	
-		
+
+
 	@GetMapping("/list-user/{userId}")
 	public Optional<User> getUserById(@PathVariable long userId){
 		return userService.findById(userId);
 	}
-	
-	
+
+
 	@PutMapping("/edit-user/{userId}")
 	public User updateUser(@RequestBody User user, @PathVariable long userId) {
 		return userService.updateUser(userId, user);
 	}
 
-	
+
 	@PutMapping("/delete-user/{userId}")
 	public User deleteUser(@RequestBody User user, @PathVariable long userId) {
 		return userService.delete(user);
 	}
-	
-	
+
 }
 
