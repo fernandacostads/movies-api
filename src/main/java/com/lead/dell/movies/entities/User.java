@@ -18,120 +18,155 @@ import com.lead.dell.movies.profileenum.ProfileEnum;
 @Entity
 @Table(name="tb_user")
 public class User implements Serializable {
-	
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	
+
 	@Column(name = "user_id")
 	private long userId;
-	
+
 	@Column(nullable=false,unique=true)
 	private String cpf;
-	
+
 	private String name;
-	
+
 	@Column(name = "phone_number")
 	private String phoneNumber;
-	
+
 	@Column(unique=true)
 	private String email;
-	
+
 	@Column(nullable=false)
 	private String password;
-	
+
 	@Enumerated(EnumType.STRING)
 	private ProfileEnum profile;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "language_id")
 	private Language language;
 
 	private boolean active = true;
 
+	private String roles;
+
+	private String userName;
+
 
 	public long getUserId() {
 		return userId;
 	}
 
+
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
+
 
 	public String getCpf() {
 		return cpf;
 	}
 
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
-	
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+
 	public Language getLanguage() {
 		return language;
 	}
+
 
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
 
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 	public boolean isActive() {
 		return active;
 	}
 
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-	
+
 	public ProfileEnum getProfile() {
 		return profile;
 	}
 
+
 	public void setProfile(ProfileEnum profile) {
 		this.profile = profile;
 	}
-	
-	
-	
-}
 
+
+	public String getRoles() {
+		return roles;
+	}
+
+
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+}

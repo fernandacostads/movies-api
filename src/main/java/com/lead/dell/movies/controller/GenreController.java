@@ -17,42 +17,42 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @EnableAutoConfiguration
-//@RequestMapping(value="/")
+
 public class GenreController {
 
 	@Autowired
 	GenreService genreService;
-	
-	
+
+
 	@PostMapping("/add-genre")
 	public Genre createGenre(@RequestBody Genre genre) {
 		return genreService.save(genre);
 	}
-	
-	
+
+
 	@GetMapping("/listall-genre")
 	public List<Genre> getAllGenres(){
 		return genreService.findAll();
 	}
-	
-		
+
+
 	@GetMapping("/list-genre/{genreId}")
 	public Optional<Genre> getGenreById(@PathVariable long genreId){
 		return genreService.findById(genreId);
 	}
-	
-	
+
+
 	@PutMapping("/edit-genre/{genreId}")
 	public Genre updateGenre(@RequestBody Genre genre, @PathVariable long genreId) {
 		return genreService.updateGenre(genreId, genre);
 	}
 
-	
+
 	@PutMapping("/delete-genre/{genreId}")
 	public Genre deleteGenre(@RequestBody Genre genre, @PathVariable long genreId) {
 		return genreService.delete(genre);
 	}
-	
-	
+
+
 }
 

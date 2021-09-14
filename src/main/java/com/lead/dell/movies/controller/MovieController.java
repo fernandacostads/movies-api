@@ -19,37 +19,37 @@ public class MovieController {
 
 	@Autowired
 	MovieService movieService;
-	
-	
+
+
 	@PostMapping("/add-movie")
 	public Movie createMovie(@RequestBody Movie movie) {
 		return movieService.save(movie);
 	}
-	
-	
+
+
 	@GetMapping("/listall-movie")
 	public List<Movie> getAllMovies(){
 		return movieService.findAll();
 	}
-	
-		
+
+
 	@GetMapping("/list-movie/{movieId}")
 	public Optional<Movie> getMovieById(@PathVariable long movieId){
 		return movieService.findById(movieId);
 	}
-	
-	
+
+
 	@PutMapping("/edit-movie/{movieId}")
 	public Movie updateMovie(@RequestBody Movie movie, @PathVariable long movieId) {
 		return movieService.updateMovie(movieId, movie);
 	}
 
-	
+
 	@PutMapping("/delete-movie/{movieId}")
 	public Movie deleteGenre(@RequestBody Movie movie, @PathVariable long movieId) {
 		return movieService.delete(movie);
 	}
-	
-	
+
+
 }
 
