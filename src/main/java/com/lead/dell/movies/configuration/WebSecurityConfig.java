@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable()
 
-		.authorizeRequests().antMatchers("/authenticate","/v2/api-docs", "/configuration/ui", "/configuration/**", "/webjars/**", "/listall-movie", "listall-genre").permitAll().
+		.authorizeRequests().antMatchers("/authenticate","/v2/api-docs", "/configuration/ui", "/configuration/**", "/webjars/**", "/listall-movie", "listall-genre", "/list-movie/{movieId}").permitAll().
 
 		anyRequest().authenticated().and().
 		exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
